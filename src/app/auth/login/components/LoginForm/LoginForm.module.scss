@@ -1,0 +1,92 @@
+@use "../../../../styles/animations" as *;
+@use "../../../../styles/variables" as *;
+
+.loginForm {
+    text-align: start;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background: $background-color;
+    box-shadow: 0 4px 20px rgb(93 95 239 / 8%);
+    animation: fade-in 0.4s ease-out forwards;
+    opacity: 0;
+
+    label {
+        display: block;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        color: $text-color;
+        transition: color 0.2s ease;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid lighten($text-color, 40%);
+        border-radius: 8px;
+        font-size: 1rem;
+        color: $text-color;
+        background: white;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgb(93 95 239 / 10%);
+        }
+
+        &::placeholder {
+            color: lighten($text-color, 30%);
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 0.875rem;
+        margin-top: 1rem;
+        background-color: $secondary-color;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            transform 0.1s ease;
+
+        &:hover {
+            background-color: darken($secondary-color, 8%);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+
+        &:disabled {
+            background-color: lighten($secondary-color, 20%);
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+    }
+}
+
+.error {
+    color: red;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: rgb(239 93 168 / 8%);
+    border-radius: 4px;
+    animation: shake 0.4s ease;
+    @media (width <= 480px) {
+       font-size: 14px;
+    }
+}
+
+.spinner {
+    @extend .spin !optional;
+}
