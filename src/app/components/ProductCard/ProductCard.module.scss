@@ -1,0 +1,108 @@
+@use "../../styles/variables" as *;
+
+$border-radius: 8px;
+$box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+$transition: all 0.3s ease;
+
+.productCard {
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    transition: $transition;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgb(0 0 0 / 15%);
+    }
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $transition;
+
+    .productCard:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.imageCaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba($secondary-color, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    border-top-right-radius: $border-radius;
+}
+
+.productInfo {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.productTitle {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: $text-color;
+    font-weight: 500;
+    line-height: 1.4;
+
+    @media (width <= 640px) {
+        font-size: 1rem;
+    }
+}
+
+.productPrice {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $primary-color;
+
+    @media (width <= 640px) {
+        font-size: 1.2rem;
+    }
+}
+
+.addToCartButton {
+    margin-top: auto;
+    background: $secondary-color;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: $border-radius;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+
+    &:hover {
+        background: darken($secondary-color, 10%);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    @media (width <= 640px) {
+        font-size: 14px;
+    }
+}
