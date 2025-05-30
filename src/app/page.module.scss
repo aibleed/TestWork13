@@ -1,0 +1,27 @@
+@use "./styles/animations" as *;
+@use "./styles/variables" as *;
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    padding: 5rem 2.5rem;
+    text-align: center;
+    background: $background-color;
+
+    @media (width <= 480px) {
+        padding: 1.5rem;
+    }
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
